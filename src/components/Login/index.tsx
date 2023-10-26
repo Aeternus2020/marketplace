@@ -3,8 +3,7 @@ import { useDispatch } from 'react-redux';
 import { closeForm } from '../../redux/slices/modalLoginSlice';
 import animalsHello from '../../images/login/animals_hello.svg';
 import AnimationCircle from '../Circles';
-import Seller from './buttons/Seller';
-import Customer from './buttons/Customer';
+import ButtonSellerCustomer from './buttons';
 
 const Login: React.FC = () => {
   const dispatch = useDispatch();
@@ -20,8 +19,8 @@ const Login: React.FC = () => {
           className="animals_hello"
         />
       </div>
-      <Seller />
-      <Customer />
+      <ButtonSellerCustomer typeUser="Seller" />
+      <ButtonSellerCustomer typeUser="Customer" />
       <button
         className="close"
         type="button"

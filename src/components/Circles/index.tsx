@@ -19,13 +19,13 @@ const AnimationCircle: React.FC = () => {
 
       setCircles(newCircles);
     };
-
-    const interval = setInterval(animateCircles, 1500);
+    animateCircles();
+    const interval = setInterval(animateCircles, 2000);
 
     return () => {
       clearInterval(interval);
     };
-  }, [circles]);
+  }, []);
 
   return (
     <div className="animation_circle">
