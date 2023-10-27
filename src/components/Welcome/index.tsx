@@ -1,18 +1,19 @@
 import React, { useRef, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { closeForm } from '../../redux/slices/modalLoginSlice';
+import { closeForm } from '../../redux/slices/modalWelcomeSlice';
+import animalsHello from '../../images/login/animals_hello.svg';
 import AnimationCircle from '../Circles';
-import animalsLogin from '../../images/login/animals_login.svg';
+import ButtonSellerCustomer from './buttons';
 
-const Login: React.FC = () => {
+const Welcome: React.FC = () => {
   const dispatch = useDispatch();
-  const modalLoginRef = useRef<HTMLDivElement | null>(null);
+  const modalRef = useRef<HTMLDivElement | null>(null);
 
   const handleClickOutside = (event: MouseEvent) => {
     if (
-      modalLoginRef.current &&
+      modalRef.current &&
       event.target instanceof Node &&
-      !modalLoginRef.current.contains(event.target)
+      !modalRef.current.contains(event.target)
     ) {
       dispatch(closeForm());
     }
@@ -26,16 +27,19 @@ const Login: React.FC = () => {
   }, []);
 
   return (
-    <div className="login" ref={modalLoginRef}>
-      <div className="login__main">
-        <h3>Hello, Pet Lover&#33; Sign login</h3>
+    <div className="welcome" ref={modalRef}>
+      <div className="welcome__main">
+        <h3>Welcome! Let &#180;s get started</h3>
+        <span>Click on the button to proceed</span>
         <img
-          src={animalsLogin}
+          src={animalsHello}
           alt="Welcome"
           loading="lazy"
           className="animals_hello"
         />
       </div>
+      <ButtonSellerCustomer typeUser="Seller" />
+      <ButtonSellerCustomer typeUser="Customer" />
       <button
         className="close"
         type="button"
@@ -47,4 +51,4 @@ const Login: React.FC = () => {
   );
 };
 
-export default Login;
+export default Welcome;

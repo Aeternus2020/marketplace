@@ -1,7 +1,8 @@
 button
     cursor: pointer
 
-h3
+.welcome__main h3,
+.login__main h3
     color: var(--dark_violet, #390176)
     font-feature-settings: 'liga' off
     font-family: Inter
@@ -11,7 +12,7 @@ h3
     line-height: 26px
     letter-spacing: 0.2px
 
-span 
+.welcome__main span 
     color: var(--light_text, #C4BFCD)
     font-family: Inter
     font-size: 12px
@@ -24,15 +25,17 @@ span
     background-color: #6300A0
     border: none
 
-.login-hello
+.welcome,
+.login
     width: 730px
     height: 574px
     border: 1px solid #6300A0
     border-radius: 16px
     background: #FFF
     margin: 5% auto
-    position: relative
+    position: absolute
     z-index: 1
+    left: 25%
 
 .close
     border: none
@@ -49,7 +52,8 @@ span
     width: 342px
     height: 342px
 
-.login-hello__main
+.welcome__main,
+.login_main
     display: flex
     flex-direction: column
     align-items: center

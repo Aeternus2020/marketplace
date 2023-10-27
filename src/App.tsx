@@ -1,10 +1,10 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import { Provider } from 'react-redux';
-import { BrowserRouter, Routes } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import store from './redux/store';
-// import Home from './pages/Home';
+import Home from './pages/Home';
 
 function App() {
   return (
@@ -12,9 +12,7 @@ function App() {
       <BrowserRouter>
         <Header />
         <Routes>
-          {/* <Routes>
-            <Route path="/" element={<Main />} />
-          </Routes> */}
+          <Route path="/" element={<Home />} />
         </Routes>
       </BrowserRouter>
     </Provider>
