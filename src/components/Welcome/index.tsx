@@ -35,7 +35,7 @@ const Welcome: React.FC = () => {
           src={animalsHello}
           alt="Welcome"
           loading="lazy"
-          className="animals_hello"
+          className="animals_welcome"
         />
       </div>
       <ButtonSellerCustomer typeUser="Seller" />
@@ -46,7 +46,7 @@ const Welcome: React.FC = () => {
         onClick={() => dispatch(closeForm())}>
         &#215;
       </button>
-      <AnimationCircle />
+      <AnimationCircle maxWidth={730} maxHeight={570} className="big" />
     </div>
   );
 };

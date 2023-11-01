@@ -2,7 +2,17 @@ import React, { useEffect, useState } from 'react';
 import '../../styles/login.sass';
 import Circle from './circle';
 
-const AnimationCircle: React.FC = () => {
+interface AnimationCircleProps {
+  maxWidth: number;
+  maxHeight: number;
+  className: string;
+}
+
+const AnimationCircle: React.FC<AnimationCircleProps> = ({
+  maxWidth,
+  maxHeight,
+  className,
+}) => {
   const [circles, setCircles] = useState([
     { id: 1, x: 590, y: 430, size: 80, background: 'rgba(166, 77, 220, 0.35)' },
     { id: 2, x: 32, y: 15, size: 105, background: '#F5E4FF' },
@@ -28,7 +38,7 @@ const AnimationCircle: React.FC = () => {
   }, []);
 
   return (
-    <div className="animation_circle">
+    <div className={`animation_circle ${className}`}>
       {circles.map((circle) => (
         <Circle
           key={circle.id}
@@ -36,6 +46,8 @@ const AnimationCircle: React.FC = () => {
           x={circle.x}
           y={circle.y}
           background={circle.background}
+          maxW={maxWidth}
+          maxH={maxHeight}
         />
       ))}
     </div>

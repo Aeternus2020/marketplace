@@ -6,11 +6,20 @@ interface CircleProps {
   x: number;
   y: number;
   background: string;
+  maxW: number;
+  maxH: number;
 }
 
-const Circle: React.FC<CircleProps> = ({ size, x, y, background }) => {
-  const maxX = 730 - size;
-  const maxY = 570 - size;
+const Circle: React.FC<CircleProps> = ({
+  size,
+  x,
+  y,
+  background,
+  maxW,
+  maxH,
+}) => {
+  const maxX = maxW - size;
+  const maxY = maxH - size;
   const clampedX = Math.min(maxX, Math.max(0, x));
   const clampedY = Math.min(maxY, Math.max(0, y));
 
