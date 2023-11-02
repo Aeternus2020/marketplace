@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { closeForm } from '../../redux/slices/modalWelcomeSlice';
-import { openForm } from '../../redux/slices/modalLoginSlice';
+import { closeFormWelcome } from '../../redux/slices/modalWelcomeSlice';
+import { openFormLogin } from '../../redux/slices/modalLoginSlice';
 
 interface ButtonProps {
   typeUser: string;
@@ -11,8 +11,8 @@ const ButtonSellerCustomer: React.FC<ButtonProps> = ({ typeUser }) => {
   const dispatch = useDispatch();
 
   const openLogin = () => {
-    dispatch(closeForm());
-    dispatch(openForm());
+    dispatch(closeFormWelcome());
+    dispatch(openFormLogin());
   };
 
   return (

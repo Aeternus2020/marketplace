@@ -1,273 +1,289 @@
-button
-    cursor: pointer
+@import 'vars'
 
+button  
+  cursor: pointer 
+ 
 .welcome__main h3,
-.login_title
-    color: var(--dark_violet, #390176)
-    font-feature-settings: 'liga' off
-    font-family: Inter
-    font-size: 20px
-    font-style: normal
-    font-weight: 600
-    line-height: 26px
-    letter-spacing: 0.2px
-    text-align: left
+.login__title  
+  color: $color-dark-violet 
+  font-family: $font-family-inter
+  font-size: 20px 
+  font-style: normal 
+  font-weight: 600 
+  line-height: 26px 
+  letter-spacing: 0.2px 
+  text-align: left 
 
-.welcome__main span 
-    color: var(--light_text, #C4BFCD)
-    font-family: Inter
-    font-size: 12px
-    font-style: normal
-    font-weight: 400
-    line-height: normal
-    margin-bottom: 12px
+.welcome__main span  
+  color: $color-light-text 
+  font-family: $font-family-inter
+  font-size: 12px 
+  font-style: normal 
+  font-weight: 400 
+  line-height: normal 
+  margin-bottom: 12px 
 
-.user_login
-    background-color: #6300A0
-    border: none
-
+.user_login  
+  background-color: #6300A0 
+  border: none 
+ 
 .welcome,
-.login
-    width: 730px
-    height: 574px
-    border: 1px solid #6300A0
-    border-radius: 16px
-    background: #FFF
-    margin: 5% auto
-    position: absolute
-    z-index: 1
-    left: 25%
+.login  
+  width: 730px 
+  height: 574px 
+  border: 1px solid #6300A0 
+  border-radius: 16px 
+  background: $color-white
+  margin: 5% auto 
+  position: absolute 
+  z-index: 1 
+  left: 25% 
 
-.close
-    border: none
-    background-color: transparent
-    height: 35px
-    padding: 0
-    font-size: 2.3rem
-    position: relative
-    bottom: 117%
-    left: 94%
-    z-index: 5
+.close  
+  border: none 
+  background-color: transparent 
+  height: 35px 
+  padding: 0 
+  font-size: 2.3rem 
+  position: relative 
+  bottom: 117% 
+  left: 94% 
+  z-index: 5 
 
-.close_login
-    bottom: -2%
-    left: 43%
+.close__login  
+  bottom: -2% 
+  left: 43% 
 
-.animals_welcome
-    width: 342px
-    height: 342px
+.animals_welcome  
+  width: 342px 
+  height: 342px 
+ 
+.login__animals-hello  
+  width: 318px 
+  height: 318px 
+  position: relative 
+  top: 100px 
+  left: 7% 
+  z-index: 3 
 
-.animals_hello
-    width: 318px
-    height: 318px
-    position: relative
-    top: 100px
-    left: 7%
-    z-index: 3
+.welcome__main  
+  display: flex 
+  flex-direction: column 
+  align-items: center 
+  margin: 60px auto 
+  position: relative 
+  z-index: 3 
 
-.welcome__main
-    display: flex
-    flex-direction: column
-    align-items: center
-    margin: 60px auto
-    position: relative
-    z-index: 3
+.login__main  
+  z-index: 3 
 
-.login_main
-    z-index: 3
+.login  
+  display: flex 
 
-.login
-    display: flex
+.repeat_password
+  color: $color-dark_violet
+  text-align: left
+  font-family: $font-family-nunito
+  font-size: 12px
+  font-style: normal
+  font-weight: 400
+  line-height: normal
+  display: block
 
-.circle
-  position: absolute
-  border-radius: 50%
-  transition: all 2s ease-in-out
-  animation-play-state: running
+.circle  
+  position: absolute 
+  border-radius: 50% 
+  transition: all 2s ease-in-out 
+  animation-play-state: running 
 
-.animation_circle
-  position: relative
-  height: 570px
-  margin: 0 auto
-  z-index: 2
-  
-.big
-    width: 730px
-    bottom: 720px
+.animation_circle  
+  position: relative 
+  height: 570px 
+  margin: 0 auto 
+  z-index: 2 
 
-.small
-    width: 370px
-    bottom: 320px
+.big  
+  width: 730px 
+  bottom: 720px 
 
-.form_wrapper
-    height: 100%
-    margin: 60px 0 60px
-    max-width: 350px
-    text-align: center
+.small  
+  width: 370px 
+  bottom: 320px 
 
-.forgot_link
-    color: #8F21D3
-    font-feature-settings: 'salt' on, 'liga' off
-    font-family: Inter
-    font-size: 12px
-    font-style: normal
-    font-weight: 500
-    line-height: 14px
-    letter-spacing: 0.24px
-    opacity: 0.45
-    border: none
-    background-color: transparent
-    text-decoration: underline
-    width: 170px
-    margin: 24px auto
+.login__form-wrapper  
+  height: 100% 
+  margin: 60px 0 60px 
+  max-width: 350px 
+  text-align: center 
 
-.or
-    display: flex
-    justify-content: space-between
-    color: var(--light_text, #C4BFCD)
-    align-items: center
-    margin-bottom: 24px
+.login__forgot_link  
+  color: $color-violet
+  font-family: $font-family-inter
+  font-size: 12px 
+  font-style: normal 
+  font-weight: 500 
+  line-height: 14px 
+  letter-spacing: 0.24px 
+  opacity: 0.45 
+  border: none 
+  background-color: transparent 
+  text-decoration: underline 
+  width: 170px 
+  margin-top: 24px
 
-#loginOrEmail,
-#password
-    border-radius: 8px
-    border: 1px solid var(--light_grey_stroke, #E8E8EA)
-    padding: 8px 12px
-    width: 276px
-    height: 24px
+.login__or  
+  display: flex 
+  justify-content: space-between 
+  color: $color-light-text 
+  align-items: center 
+  margin: 24px 0
 
-.password-icons
-    background-color: transparent
-    border: none
-    position: relative
-    bottom: 35px
-    left: 130px
+#email,
+#password,
+#passwordFirst,
+#passwordSecond  
+  border-radius: 8px 
+  border: 1px solid $color-light-grey-stroke 
+  padding: 8px 12px 
+  width: 276px 
+  height: 24px 
+ 
+.login__password-icons  
+  background-color: transparent 
+  border: none 
+  position: relative 
+  bottom: 35px 
+  left: 130px 
+ 
+.login__submit_button  
+  border-radius: 8px 
+  background: #F99B2A 
+  width: 302px 
+  height: 40px 
+  border: none 
+  color: $color-white
+  font-family: $font-family-inter
+  font-size: 14px 
+  font-style: normal 
+  font-weight: 700 
+  line-height: 21px 
+  letter-spacing: 0.42px 
+ 
+.login__svg  
+  width: 30px 
+  left: 267px 
 
-.login_submit_button
-    border-radius: 8px
-    background: #F99B2A
-    width: 302px
-    height: 40px
-    border: none
-    color: var(--neutral-100, #FFF)
-    font-family: Inter
-    font-size: 14px
-    font-style: normal
-    font-weight: 700
-    line-height: 21px
-    letter-spacing: 0.42px
+.login__register-link-button  
+  display: flex 
+  gap: 4px 
+  border: none 
+  background-color: transparent 
+  border-radius: 8px 
+  padding: 8px 
+  color: #8611CD 
+  text-align: center 
+  font-family: $font-family-nunito
+  font-size: 14px 
+  font-style: normal 
+  font-weight: 700 
+  line-height: 17px 
 
-.login_svg
-    width: 30px
-    left: 267px
+.login__sign_social_button  
+  display: flex 
+  width: 302px 
+  height: 40px 
+  margin-bottom: 12px 
+  padding: 8px 0 
+  justify-content: center 
+  align-items: center 
+  border-radius: 8px 
+  gap: 8px 
+  border: 1px solid $color-light-grey-stroke 
+  background: #FFF 
 
-.login_registerLink_button
-    border: none
-    background-color: transparent
-    border-radius: 8px
-    padding: 8px
-    color: #8611CD;
-    text-align: center
-    font-family: Nunito Sans
-    font-size: 14px
-    font-style: normal
-    font-weight: 700
-    line-height: 17px
+.login__register-link  
+  color: $color-light-text 
+  font-family: $font-family-inter
+  font-size: 12px 
+  font-style: normal 
+  font-weight: 400 
+  line-height: normal 
+  display: flex 
+  align-items: center 
+  justify-content: space-between
 
-.sign_social_button
-    display: flex
-    width: 302px
-    height: 40px
-    margin-bottom: 12px
-    padding: 8px 0
-    justify-content: center
-    align-items: center
-    border-radius: 8px
-    gap: 8px
-    border: 1px solid var(--light_grey_stroke, #E8E8EA)
-    background: #FFF
-
-.login_registerLink
-    color: var(--light_text, #C4BFCD)
-    font-family: Inter
-    font-size: 12px
-    font-style: normal
-    font-weight: 400
-    line-height: normal
-    display: flex
-    align-items: center
-    justify-content: space-between
-
-.Seller_wrapper_button
-    width: 145px
-    height: 65px
-    display: flex
-    align-items: center
-    justify-content: center
-    bottom: 320px
-    position: relative
-    left: 85px
-    z-index: 5
-    background: url('../images/login/cloudSeller.svg') no-repeat
-
-.Seller_button
-    margin-bottom: 5px
-    width: 85px
-    height: 32px
-    border: none
-    border-radius: 8px
-    background: #F99B2A
-    color: #FFF
-    font-family: Nunito Sans
-    font-size: 14px
-    font-style: normal
-    font-weight: 700
-    line-height: 116%
-
+.Seller_wrapper_button  
+  width: 145px 
+  height: 65px 
+  display: flex 
+  align-items: center 
+  justify-content: center 
+  bottom: 320px 
+  position: relative 
+  left: 85px 
+  z-index: 5 
+  background: url('../images/login/cloudSeller.svg') no-repeat 
+ 
+.Seller_button  
+  margin-bottom: 5px 
+  width: 85px 
+  height: 32px 
+  border: none 
+  border-radius: 8px 
+  background: #F99B2A 
+  color: $color-white
+  font-family: $font-family-nunito
+  font-size: 14px 
+  font-style: normal 
+  font-weight: 700 
+  line-height: 116% 
+ 
 .Customer_wrapper_button,
-    width: 145px
-    height: 65px
-    display: flex
-    align-items: center
-    justify-content: center
-    bottom: 450px
-    position: relative
-    left: 480px
-    z-index: 5
-    background: url('../images/login/cloudCustomer.svg') no-repeat
+    width: 145px 
+    height: 65px 
+    display: flex 
+    align-items: center 
+    justify-content: center 
+    bottom: 450px 
+    position: relative 
+    left: 480px 
+    z-index: 5 
+    background: url('../images/login/cloudCustomer.svg') no-repeat 
 
-.login_errors,
-.password_errors
-    padding-top: 20px
-    z-index: 5
-    background: url('../images/login/cloudLoginErrors.svg') no-repeat
-    position: absolute
-    width: 200px
-    height: 90px
-    left: 180px
-    top: 95px
-    color: var(--Red, #EB5757)
-    text-align: center
-    font-family: Nunito Sans
-    font-size: 13px
-    font-style: normal
-    font-weight: 600
-    line-height: 14px
+.login__errors,
+.password__errors  
+  display: flex 
+  justify-content: center 
+  padding-top: 20px 
+  z-index: 5 
+  background: url('../images/login/cloudLoginErrors.svg') no-repeat 
+  position: absolute 
+  width: 200px 
+  height: 90px 
+  left: 180px 
+  top: 95px 
+  color: $color-Red 
+  text-align: center 
+  font-family: $font-family-nunito
+  font-size: 13px 
+  font-style: normal 
+  font-weight: 600 
+  line-height: 14px 
+ 
+.password__errors  
+  padding: 40px 20px 0 15px
+  width: 170px 
 
-.password_errors
-    padding-top: 40px
-
-
-.Customer_button
-    margin-bottom: 5px
-    width: 85px
-    height: 32px
-    border: none
-    border-radius: 8px
-    background:  #E8C0FF
-    color: #8611CD
-    font-family: Nunito Sans
-    font-size: 14px
-    font-style: normal
-    font-weight: 700
-    line-height: 116%
+.Customer_button  
+  margin-bottom: 5px 
+  width: 85px 
+  height: 32px 
+  border: none 
+  border-radius: 8px 
+  background: #E8C0FF 
+  color: #8611CD 
+  font-family: $font-family-nunito
+  font-size: 14px 
+  font-style: normal 
+  font-weight: 700 
+  line-height: 116% 

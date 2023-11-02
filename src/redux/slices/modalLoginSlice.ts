@@ -7,14 +7,14 @@ const modalLoginSlice = createSlice({
     statusButtonLogin: true,
   },
   reducers: {
-    openForm(state) {
+    openFormLogin(state) {
       state.statusLogin = true;
     },
-    closeForm(state) {
+    closeFormLogin(state) {
       state.statusLogin = false;
       state.statusButtonLogin = false;
     },
-    openApp(state) {
+    openAppLogin(state) {
       state.statusLogin = false;
       state.statusButtonLogin = true;
     },
@@ -22,4 +22,5 @@ const modalLoginSlice = createSlice({
 });
 
 export default modalLoginSlice.reducer;
-export const { openForm, closeForm, openApp } = modalLoginSlice.actions;
+export const { openFormLogin, closeFormLogin, openAppLogin } =
+  modalLoginSlice.actions;

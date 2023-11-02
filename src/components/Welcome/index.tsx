@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { closeForm } from '../../redux/slices/modalWelcomeSlice';
+import { closeFormWelcome } from '../../redux/slices/modalWelcomeSlice';
 import animalsHello from '../../images/login/animals_hello.svg';
 import AnimationCircle from '../Circles';
 import ButtonSellerCustomer from './buttons';
@@ -15,7 +15,7 @@ const Welcome: React.FC = () => {
       event.target instanceof Node &&
       !modalRef.current.contains(event.target)
     ) {
-      dispatch(closeForm());
+      dispatch(closeFormWelcome());
     }
   };
 
@@ -43,7 +43,7 @@ const Welcome: React.FC = () => {
       <button
         className="close"
         type="button"
-        onClick={() => dispatch(closeForm())}>
+        onClick={() => dispatch(closeFormWelcome())}>
         &#215;
       </button>
       <AnimationCircle maxWidth={730} maxHeight={570} className="big" />

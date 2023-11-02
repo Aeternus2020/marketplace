@@ -1,8 +1,7 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import React, { useRef, useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useFormik } from 'formik';
-import { closeFormLogin } from '../../redux/slices/modalLoginSlice';
+import { closeFormReg } from '../../redux/slices/modalRegSlice';
 import AnimationCircle from '../Circles';
 import animalsLogin from '../../images/login/animals_login.svg';
 import {
@@ -15,27 +14,28 @@ import {
   LoginInputIcon,
   Foot,
 } from '../../images/login/icons';
+import { openFormLogin } from '../../redux/slices/modalLoginSlice';
 import validationSchema from './validation';
-import { openFormReg } from '../../redux/slices/modalRegSlice';
 
-const Login: React.FC = () => {
+const Registration: React.FC = () => {
   const dispatch = useDispatch();
-  const modalLoginRef = useRef<HTMLDivElement | null>(null);
-  const [showPassword, setShowPassword] = useState(false);
+  const modalRegRef = useRef<HTMLDivElement | null>(null);
+  const [showPasswordFirst, setShowPasswordFirst] = useState(false);
+  const [showPasswordSecond, setShowPasswordSecond] = useState(false);
 
   const handleClickOutside = (event: MouseEvent) => {
     if (
-      modalLoginRef.current &&
+      modalRegRef.current &&
       event.target instanceof Node &&
-      !modalLoginRef.current.contains(event.target)
+      !modalRegRef.current.contains(event.target)
     ) {
-      dispatch(closeFormLogin());
+      dispatch(closeFormReg());
     }
   };
 
-  const openReg = () => {
-    dispatch(closeFormLogin());
-    dispatch(openFormReg());
+  const openLogin = () => {
+    dispatch(closeFormReg());
+    dispatch(openFormLogin());
   };
 
   useEffect(() => {
@@ -48,17 +48,18 @@ const Login: React.FC = () => {
   const formik = useFormik({
     initialValues: {
       email: '',
-      password: '',
+      passwordFirst: '',
+      passwordSecond: '',
     },
     validationSchema,
-    onSubmit: ({ email, password }) => {
-      console.log(email, password);
-      // dispatch(login({ loginOrEmail, password }));
+    onSubmit: ({ email, passwordFirst, passwordSecond }) => {
+      console.log(email, passwordFirst, passwordSecond);
+      //   dispatch(login({ loginOrEmail, passwordFirst, passwordSecond }));
     },
   });
 
   return (
-    <div className="login" ref={modalLoginRef}>
+    <div className="login" ref={modalRegRef}>
       <div className="login__main">
         <img
           src={animalsLogin}
@@ -71,12 +72,12 @@ const Login: React.FC = () => {
       <button
         className="close close__login"
         type="button"
-        onClick={() => dispatch(closeFormLogin())}>
+        onClick={() => dispatch(closeFormReg())}>
         &#215;
       </button>
       <div className="login__form-wrapper">
         <form onSubmit={formik.handleSubmit}>
-          <h3 className="login__title">Hello, Pet Lover&#33; Sign In</h3>
+          <h3 className="login__title">Create an account </h3>
           <div>
             <div style={{ maxHeight: '40px', marginBottom: '12px' }}>
               <input
@@ -94,27 +95,56 @@ const Login: React.FC = () => {
             </div>
             <div style={{ maxHeight: '40px', marginBottom: '12px' }}>
               <input
-                type={showPassword ? 'text' : 'password'}
-                id="password"
-                name="password"
+                type={showPasswordFirst ? 'text' : 'password'}
+                id="passwordFirst"
+                name="passwordFirst"
                 onBlur={formik.handleBlur}
-                value={formik.values.password}
+                value={formik.values.passwordFirst}
                 onChange={formik.handleChange}
                 placeholder="Password"
               />
               <div>
-                {showPassword ? (
+                {showPasswordFirst ? (
                   <button
                     type="button"
                     className="login__password-icons"
-                    onClick={() => setShowPassword(false)}>
+                    onClick={() => setShowPasswordFirst(false)}>
                     <PasswordInputIcon1 />
                   </button>
                 ) : (
                   <button
                     type="button"
                     className="login__password-icons"
-                    onClick={() => setShowPassword(true)}>
+                    onClick={() => setShowPasswordFirst(true)}>
+                    <PasswordInputIcon2 />
+                  </button>
+                )}
+              </div>
+            </div>
+            <span className="repeat_password">Repeat your password</span>
+            <div style={{ maxHeight: '40px', marginBottom: '12px' }}>
+              <input
+                type={showPasswordSecond ? 'text' : 'password'}
+                id="passwordSecond"
+                name="passwordSecond"
+                onBlur={formik.handleBlur}
+                value={formik.values.passwordSecond}
+                onChange={formik.handleChange}
+                placeholder="Password"
+              />
+              <div>
+                {showPasswordSecond ? (
+                  <button
+                    type="button"
+                    className="login__password-icons"
+                    onClick={() => setShowPasswordSecond(false)}>
+                    <PasswordInputIcon1 />
+                  </button>
+                ) : (
+                  <button
+                    type="button"
+                    className="login__password-icons"
+                    onClick={() => setShowPasswordSecond(true)}>
                     <PasswordInputIcon2 />
                   </button>
                 )}
@@ -129,21 +159,20 @@ const Login: React.FC = () => {
                 {formik.errors.email}
               </p>
             )}
-            {formik.touched.password && formik.errors.password && (
+            {((formik.touched.passwordFirst && formik.errors.passwordFirst) ||
+              (formik.touched.passwordSecond &&
+                formik.errors.passwordSecond)) && (
               <p className="password__errors">
                 <PasswordErrorIcon />
                 {': '}
-                {formik.errors.password}
+                {formik.errors.passwordFirst || formik.errors.passwordSecond}
               </p>
             )}
           </div>
           <button type="submit" className="login__submit_button">
-            Log In
+            Register
           </button>
         </form>
-        <button type="button" className="login__forgot_link">
-          Forgot your password?
-        </button>
         <div className="login__or">
           <div style={{ textDecoration: 'line-through' }}>
             ---------------------------
@@ -162,12 +191,12 @@ const Login: React.FC = () => {
           Log in with Facebook
         </button>
         <div className="login__register-link">
-          Don&#180;t have an account yet?{' '}
+          Back to{' '}
           <button
             type="button"
-            onClick={() => openReg()}
+            onClick={() => openLogin()}
             className="login__register-link-button">
-            Register here <Foot />
+            Login <Foot />
           </button>
         </div>
       </div>
@@ -175,4 +204,4 @@ const Login: React.FC = () => {
   );
 };
 
-export default Login;
+export default Registration;

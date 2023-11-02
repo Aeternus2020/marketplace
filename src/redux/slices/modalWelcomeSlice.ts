@@ -7,14 +7,14 @@ const modalWelcomeSlice = createSlice({
     statusButtonLogin: true,
   },
   reducers: {
-    openForm(state) {
+    openFormWelcome(state) {
       state.statusWelcome = true;
     },
-    closeForm(state) {
+    closeFormWelcome(state) {
       state.statusWelcome = false;
       state.statusButtonLogin = false;
     },
-    openApp(state) {
+    openAppWelcome(state) {
       state.statusWelcome = false;
       state.statusButtonLogin = true;
     },
@@ -22,4 +22,5 @@ const modalWelcomeSlice = createSlice({
 });
 
 export default modalWelcomeSlice.reducer;
-export const { openForm, closeForm, openApp } = modalWelcomeSlice.actions;
+export const { openFormWelcome, closeFormWelcome, openAppWelcome } =
+  modalWelcomeSlice.actions;
